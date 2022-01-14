@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="prac2.css">
+  <head>
+    <meta charset="utf-8">
+    <title> js practice </title>
+  </head>
+  <body class="body1">
+    <h1> <b>To do list</b></h1>
+    <br>
+    <input type="text" id="in1">
+    <button id="bu1" onclick="add1()" >Add</button>
+    <br><br>
+    <div class="task">
+      <!--p id="p1">para 1 of div 1</p>
+      <p id="p2">para 2 of div 1</p-->
+
+    </div>
+  </body>
+  <script type="text/javascript" src="jquery.js" >
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  var str = document.getElementById('in1');
+
+
+
+    $("#bu1").click(function(){
+      var task = document.querySelector('.task');
+      const temp = document.createElement("div");
+      temp.innerHTML = `<p> ${str.value}   <button>DELETE</button></p>`;
+
+      task.appendChild(temp);
+
+      temp.querySelector('button').onclick = (event)=>{
+        event.preventDefault();
+        task.removeChild(temp);
+      }
+      str.value = "";
+
+    });
+
+  })
+  </script>
+</html>
